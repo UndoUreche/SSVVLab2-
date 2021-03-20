@@ -13,17 +13,6 @@ import validation.Validator;
 import static org.junit.Assert.assertEquals;
 
 public class StudentTests {
-
-//            if (student.getID() == null || student.getID().equals("")) {
-//        throw new ValidationException("ID invalid! \n");
-//    }
-//        if (student.getNume() == null || student.getNume().equals("")) {
-//        throw new ValidationException("Nume invalid! \n");
-//    }
-//        if (student.getGrupa() <= 110 || student.getGrupa() >= 938) {
-//        throw new ValidationException("Grupa invalida! \n");
-//    }
-
     @Mock
     StudentXMLRepository studentXmlRepo;
     @Mock
@@ -31,15 +20,12 @@ public class StudentTests {
     @Mock
     NotaXMLRepository notaXMLRepository;
 
-    @Mock
-    Validator<Student> validator;
-
     Service testService;
 
 
     @Before
-    void init() {
-        MockitoAnnotations.initMocks(Service.class);
+    public void init() {
+        MockitoAnnotations.initMocks(this);
         testService = new Service(studentXmlRepo, temaXMLRepository, notaXMLRepository);
     }
 

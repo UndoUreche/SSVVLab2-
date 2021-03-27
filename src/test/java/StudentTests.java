@@ -26,6 +26,8 @@ public class StudentTests {
     public static final int VALID_GROUP = 512;
     public static final int SUCCESS_RETURN_VALUE = 0;
     public static final int FAILURE_RETURN_VALUE = 1;
+    public static final int UPPER_LIMIT_GROUP = 938;
+    public static final int LOWER_LIMIT_GROUP = 110;
 
 
     @Before
@@ -67,6 +69,34 @@ public class StudentTests {
         Student entity = new Student(VALID_ID, VALID_NAME, 99);
         when(studentXmlRepo.save(entity)).thenReturn(null);
         assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, 99), FAILURE_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithGroupCornerBig_AdditionFails() {
+        Student entity = new Student(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP + 1);
+        when(studentXmlRepo.save(entity)).thenReturn(null);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP + 1), FAILURE_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithGroupCornerSmall_AdditionFails() {
+        Student entity = new Student(VALID_ID, VALID_NAME, LOWER_LIMIT_GROUP - 1);
+        when(studentXmlRepo.save(entity)).thenReturn(null);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, LOWER_LIMIT_GROUP - 1), FAILURE_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithGroupInvalidUpperInt_AdditionFails() {
+        Student entity = new Student(VALID_ID, VALID_NAME, Integer.MAX_VALUE + 1);
+        when(studentXmlRepo.save(entity)).thenReturn(null);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, Integer.MAX_VALUE + 1), FAILURE_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithGroupInvalidLowerInt_AdditionFails() {
+        Student entity = new Student(VALID_ID, VALID_NAME, Integer.MIN_VALUE - 1);
+        when(studentXmlRepo.save(entity)).thenReturn(null);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, Integer.MIN_VALUE - 1), FAILURE_RETURN_VALUE);
     }
 
     @Test

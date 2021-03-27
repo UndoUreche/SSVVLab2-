@@ -37,7 +37,7 @@ public class StudentTests {
     public void whenAddStudent_CorrectParameters_AdditionSucceeds(){
         Student student = new Student(VALID_ID, VALID_NAME, VALID_GROUP);
    //     when(studentXmlRepo.save(student)).thenReturn(student);
-        assertEquals(testService.saveStudent(VALID_ID,VALID_NAME,VALID_GROUP),FAILURE_RETURN_VALUE);
+        assertEquals(testService.saveStudent(VALID_ID,VALID_NAME,VALID_GROUP),SUCCESS_RETURN_VALUE);
     }
 
 

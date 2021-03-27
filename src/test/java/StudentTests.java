@@ -93,6 +93,20 @@ public class StudentTests {
     }
 
     @Test
+    public void whenAddStudent_WithGroupMax_AdditionSucceeds() {
+        Student entity = new Student(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP);
+        when(studentXmlRepo.save(entity)).thenReturn(entity);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP), SUCCESS_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithGroupMin_AdditionSucceeds() {
+        Student entity = new Student(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP);
+        when(studentXmlRepo.save(entity)).thenReturn(entity);
+        assertEquals(testService.saveStudent(VALID_ID, VALID_NAME, UPPER_LIMIT_GROUP), SUCCESS_RETURN_VALUE);
+    }
+
+    @Test
     public void whenAddStudent_WithGroupInvalidLowerInt_AdditionFails() {
         Student entity = new Student(VALID_ID, VALID_NAME, Integer.MIN_VALUE - 1);
         when(studentXmlRepo.save(entity)).thenReturn(null);

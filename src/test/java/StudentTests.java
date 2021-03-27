@@ -70,9 +70,16 @@ public class StudentTests {
     }
 
     @Test
-    public void whenAddStudent_WithNoId_AdditionFails() {
+    public void whenAddStudent_WithNullId_AdditionFails() {
         Student entity = new Student(null, VALID_NAME, VALID_GROUP);
         when(studentXmlRepo.save(entity)).thenReturn(null);
         assertEquals(testService.saveStudent(null, VALID_NAME, VALID_GROUP), FAILURE_RETURN_VALUE);
+    }
+
+    @Test
+    public void whenAddStudent_WithEmptyId_AdditionFails() {
+        Student entity = new Student("", VALID_NAME, VALID_GROUP);
+        when(studentXmlRepo.save(entity)).thenReturn(null);
+        assertEquals(testService.saveStudent("", VALID_NAME, VALID_GROUP), FAILURE_RETURN_VALUE);
     }
 }

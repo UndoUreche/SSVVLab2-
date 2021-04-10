@@ -159,5 +159,17 @@ public class AssignmentTests {
         });
     }
 
+    @Test
+    public void whenAddMultipleAssignments_Valid_AdditionsSucceeds(){
+        //this could be achieved using a stream for multiple assignments, but it is not required
+        Tema entity = new Tema(VALID_ID, VALID_DESCRIPTION, VALID_STARTLINE, VALID_DEADLINE);
+        Tema entity2 = new Tema(VALID_ID + "2", VALID_DESCRIPTION + "2", VALID_STARTLINE, VALID_DEADLINE);
+        when(temaXMLRepository.save(entity)).thenReturn(null);
+        when(temaXMLRepository.save(entity2)).thenReturn(null);
+
+        assertEquals(testService.saveTema(VALID_ID, VALID_DESCRIPTION, VALID_STARTLINE, VALID_DEADLINE), 1);
+        assertEquals(testService.saveTema(VALID_ID + "2", VALID_DESCRIPTION + "2", VALID_STARTLINE, VALID_DEADLINE), 1);
+    }
+
 
 }

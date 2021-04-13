@@ -37,39 +37,18 @@ public class IntegrationTest {
         when(temaXMLRepository.findOne(Constants.VALID_ASSIGNMENT_ID)).thenReturn(tema);
     }
 
-    /**
-     * Preconditions:
-     * Grade Student ID is Valid i.e it exists in the database
-     * Grade Assignment ID is Valid i.e it exists in the database
-     * Grade Value is Valid i.e. it is between 1 and 10
-     * Initial Week is valid i.e it is between 1 and 14
-     * Feedback is valid i.e. it is a string
-     */
     @Test
     public void whenAddGrade_CorrectParameters_AdditionSucceeds(){
         when(notaXMLRepository.save(nota)).thenReturn(null);
         assertEquals(Constants.SUCCESS_RETURN_VALUE,testService.saveNota(Constants.VALID_STUDENT_ID,Constants.VALID_ASSIGNMENT_ID,Constants.VALID_GRADE,Constants.VALID_INITIAL_WEEK,Constants.VALID_FEEDBACK));
     }
 
-    /**
-     * Preconditions:
-     * Assignment ID is Valid i.e it is a valid String assumed to not exist in the database
-     * Assignment Descriptions is valid i.e it is a String
-     * Assignment Startline is valid i.e. it is not after the deadline
-     * Assignment Deadline is valid i.e. it is not before the startline
-     */
     @Test
     public void whenAddAssignment_CorrectParameters_AdditionSucceeds() {
         when(temaXMLRepository.save(tema)).thenReturn(null);
         assertEquals(Constants.SUCCESS_RETURN_VALUE,testService.saveTema(Constants.VALID_ASSIGNMENT_ID, Constants.VALID_ASSIGNMENT_DESCRIPTION, Constants.VALID_ASSIGNMENT_STARTLINE, Constants.VALID_ASSIGNMENT_DEADLINE));
     }
 
-    /**
-     * Preconditions:
-     * Student ID is Valid i.e. it is a String assumed to not exist in the database
-     * Student Name is Valid i.e. it is a String
-     * Student Group is valid i.e. it is an int in the interval [110,938]
-     */
     @Test
     public void whenAddStudent_CorrectParameters_AdditionSucceeds(){
         when(studentXMLRepository.save(student)).thenReturn(null);
@@ -100,7 +79,6 @@ public class IntegrationTest {
         testService.saveStudent(Constants.VALID_STUDENT_ID,Constants.VALID_STUDENT_NAME,Constants.VALID_GROUP);
         testService.saveTema(Constants.VALID_ASSIGNMENT_ID, Constants.VALID_ASSIGNMENT_DESCRIPTION, Constants.VALID_ASSIGNMENT_STARTLINE, Constants.VALID_ASSIGNMENT_DEADLINE);
         testService.saveNota(Constants.VALID_STUDENT_ID,Constants.VALID_ASSIGNMENT_ID,Constants.VALID_GRADE,Constants.VALID_INITIAL_WEEK,Constants.VALID_FEEDBACK);
-
     }
 
 

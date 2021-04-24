@@ -81,5 +81,19 @@ public class IntegrationTest {
         testService.saveNota(Constants.VALID_STUDENT_ID,Constants.VALID_ASSIGNMENT_ID,Constants.VALID_GRADE,Constants.VALID_INITIAL_WEEK,Constants.VALID_FEEDBACK);
     }
 
+    @Test
+    public void whenAddStudentAssignmentIncremental_CorrectParameters_AdditionSucceeds(){
+        when(studentXMLRepository.save(student)).thenReturn(null);
+        when(temaXMLRepository.save(tema)).thenReturn(null);
 
+        testService.saveStudent(Constants.VALID_STUDENT_ID,Constants.VALID_STUDENT_NAME,Constants.VALID_GROUP);
+        testService.saveTema(Constants.VALID_ASSIGNMENT_ID, Constants.VALID_ASSIGNMENT_DESCRIPTION, Constants.VALID_ASSIGNMENT_STARTLINE, Constants.VALID_ASSIGNMENT_DEADLINE);
+    }
+
+    @Test
+    public void whenAddStudentAssignmentGradeIncremental_CorrectParameters_AdditionSucceeds(){
+        when(studentXMLRepository.save(student)).thenReturn(null);
+        when(temaXMLRepository.save(tema)).thenReturn(null);
+        when(notaXMLRepository.save(nota)).thenReturn(null);
+    }
 }

@@ -1,0 +1,9 @@
+ro/ubbcluj/features/access/package-info.class
+ro/ubbcluj/features/access/GithubIsHttpsAvailableStory.class
+ro/ubbcluj/pages/DictionaryPage.class
+ro/ubbcluj/pages/GithubPage.class
+ro/ubbcluj/pages/GithubRepoPage.class
+ro/ubbcluj/features/search/GithubSearchAndAccessRepositoryStory.class
+ro/ubbcluj/features/search/package-info.class
+ro/ubbcluj/steps/serenity/EndUserStepsClone.class
+ro/ubbcluj/steps/serenity/EndUserStepsSearch.class

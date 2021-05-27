@@ -1,15 +1,15 @@
-ro/ubbcluj/steps/serenity/EndUserStepsClone.java
- ro.ubbcluj.steps.serenity.EndUserStepsClone
+ro/ubbcluj/features/search/package-info.java
+ ro.ubbcluj.features.search.package-info
 ro/ubbcluj/pages/GithubPage.java
  ro.ubbcluj.pages.GithubPage
+ro/ubbcluj/features/access/package-info.java
+ ro.ubbcluj.features.access.package-info
+ro/ubbcluj/steps/serenity/EndUserStepsClone.java
+ ro.ubbcluj.steps.serenity.EndUserStepsClone
 ro/ubbcluj/pages/GithubRepoPage.java
  ro.ubbcluj.pages.GithubRepoPage
 ro/ubbcluj/pages/DictionaryPage.java
  ro.ubbcluj.pages.DictionaryPage
-ro/ubbcluj/features/search/package-info.java
- ro.ubbcluj.features.search.package-info
-ro/ubbcluj/features/access/package-info.java
- ro.ubbcluj.features.access.package-info
 ro/ubbcluj/features/search/GithubSearchAndAccessRepositoryStory.java
  ro.ubbcluj.features.search.GithubSearchAndAccessRepositoryStory
 ro/ubbcluj/steps/serenity/EndUserStepsSearch.java
